@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
+project(game_engine)
+
+# includes cmake/FindSDL2.cmake
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+find_package (OpenGL REQUIRED)
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIR})
+
+file(GLOB SOURCE_FILES src/*.cpp)
+
+add_executable(game_engine ${SOURCE_FILES})
+target_link_libraries(game_engine ${SDL2_LIBRARY})
+target_compile_features(game_engine PRIVATE cxx_range_for)
