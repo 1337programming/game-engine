@@ -1,6 +1,4 @@
 #include <iostream>
-#include <SDL.h>
-#include "SDL_opengl.h"
 #include "MainGame.h"
 #ifdef _WIN32
   #include <Windows.h>

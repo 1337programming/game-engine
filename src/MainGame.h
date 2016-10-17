@@ -2,8 +2,10 @@
 #define GAME_ENGINE_MAINGAME_H
 
 #pragma once
+#include "Sprite.h"
+#include "GLSLProgram.h"
 #include <SDL.h>
-#include <SDL_opengl.h>
+#include <OpenGL/gl3.h>
 
 enum class GameState {PLAY, EXIT};
 
@@ -29,6 +31,8 @@ class MainGame {
     int _screenWidth;
     int _screenHeight;
     GameState _gameState;
+
+    Sprite _sprite;
 
 };
 
