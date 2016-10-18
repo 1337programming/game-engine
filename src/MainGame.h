@@ -24,6 +24,7 @@ class MainGame {
 
   private:
     void initSystems();
+    void initShaders();
     void gameLoop();
     void processInput();
     void drawGame();
@@ -33,6 +34,8 @@ class MainGame {
     GameState _gameState;
 
     Sprite _sprite;
+
+    GLSLProgram _colorProgram;
 
 };
 

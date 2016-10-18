@@ -20,7 +20,7 @@ MainGame::~MainGame() {
 void MainGame::run() {
   initSystems();
 
-  _sprite.init(-1.0f, -1.0f, 1.0f, 1.0f);
+  _sprite.init(-1.0f, -1.0f, 2.0f, 2.0f);
 
   gameLoop();
 }
@@ -28,11 +28,9 @@ void MainGame::run() {
 void MainGame::initSystems() {
   // Initialize SDL
   SDL_Init(SDL_INIT_EVERYTHING);
-  /*
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
   SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
-   */
 
   _window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _screenWidth, _screenHeight,
                              SDL_WINDOW_OPENGL);
@@ -52,6 +50,17 @@ void MainGame::initSystems() {
   GLuint vertexArrayID;
   glGenVertexArrays(1, &vertexArrayID);
   glBindVertexArray(vertexArrayID);
+
+  // Print out OPENGL and Shading Language
+  int glVersionMajor;
+  int glVersionMinor;
+  glGetIntegerv(GL_MAJOR_VERSION, &glVersionMajor);
+  glGetIntegerv(GL_MINOR_VERSION, &glVersionMinor);
+  printf("\n=== OpenGL Implementation ===\n");
+  printf("Vendor: %s\n", glGetString(GL_VENDOR));
+  printf("GL Version: %s\n", glGetString(GL_VERSION));
+  printf("GL Version (Strict): %d.%d\n", glVersionMajor, glVersionMinor);
+  printf("GLSL Version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 
   /* Windows Only
   GLenum error = glewInit();
@@ -79,6 +88,18 @@ void MainGame::initSystems() {
   SDL_GL_DeleteContext(context);
   SDL_Quit();
    */
+
+  initShaders();
+}
+
+void MainGame::initShaders() {
+  _colorProgram.compileShaders(
+    "/Users/patrick.opie/Documents/github/game-engine/src/shaders/colorShading.vert",
+    "/Users/patrick.opie/Documents/github/game-engine/src/shaders/colorShading.frag");
+  _colorProgram.addAttribute("vertexPosition");
+  _colorProgram.addAttribute("vertexColor");
+  _colorProgram.linkShaders();
+
 }
 
 void MainGame::gameLoop() {
@@ -110,7 +131,11 @@ void MainGame::drawGame() {
   //@TODO need more documentation
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Bitwise operation for clearing buffer
 
+  _colorProgram.use();
+
   _sprite.draw();
+
+  _colorProgram.unuse();
 
   // Swap buffer from A to B or vice versa
   SDL_GL_SwapWindow(_window);

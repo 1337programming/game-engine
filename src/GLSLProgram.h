@@ -11,11 +11,18 @@ class GLSLProgram {
     GLSLProgram();
     ~GLSLProgram();
 
-    void compileShaders(std::string& vertexShaderFilePath, std::string& fragmentShaderFilePath);
+    void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
 
     void linkShaders();
 
+    void addAttribute(const std::string& attributeName);
+
+    void use();
+    void unuse();
+
   private:
+
+    int _numAttributes;
 
     void compileShader(const std::string& filePath, GLuint& id);
     GLuint _programID;

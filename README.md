@@ -4,6 +4,8 @@ Sample Game Engine
 
 ## Development
 
+cmake
+
 ### Mac Setup
 
 Download SDL 2.0 Framework to machine and copy folder into /Library/Frameworks/
