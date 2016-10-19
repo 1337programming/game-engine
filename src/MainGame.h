@@ -20,8 +20,6 @@ class MainGame {
 
     void run();
 
-
-
   private:
     void initSystems();
     void initShaders();

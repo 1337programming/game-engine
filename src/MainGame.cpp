@@ -123,7 +123,6 @@ void MainGame::processInput() {
       case SDL_MOUSEMOTION: // Mouse Event
         std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
     }
-
   }
 }
 
