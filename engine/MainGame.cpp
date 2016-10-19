@@ -94,8 +94,8 @@ void MainGame::initSystems() {
 
 void MainGame::initShaders() {
   _colorProgram.compileShaders(
-    "/Users/patrick.opie/Documents/github/game-engine/src/shaders/colorShading.vert",
-    "/Users/patrick.opie/Documents/github/game-engine/src/shaders/colorShading.frag");
+    "/Users/patrick.opie/Documents/github/game-engine/engine/shaders/colorShading.vert",
+    "/Users/patrick.opie/Documents/github/game-engine/engine/shaders/colorShading.frag");
   _colorProgram.addAttribute("vertexPosition");
   _colorProgram.addAttribute("vertexColor");
   _colorProgram.linkShaders();

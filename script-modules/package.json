@@ -1,0 +1,19 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "nan": "^2.4.0",
+    "node-gyp": "^3.4.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "bluebird": "^3.4.6",
+    "nyc": "^8.3.1",
+    "semistandard": "^9.1.0",
+    "snazzy": "^5.0.0"
+  },
+  "scripts": {
+    "test": "nyc ava test/sample.js"
+  }
+}

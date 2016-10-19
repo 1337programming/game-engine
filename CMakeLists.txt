@@ -11,7 +11,7 @@ include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${GLEW_INCLUDE_DIR})
 
-file(GLOB SOURCE_FILES src/*.cpp)
+file(GLOB SOURCE_FILES engine/*.cpp)
 
 add_executable(game_engine ${SOURCE_FILES})
 target_link_libraries(game_engine ${SDL2_LIBRARY} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})

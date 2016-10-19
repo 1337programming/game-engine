@@ -16,6 +16,11 @@ The Cmake file should work the same.
 
 ### TODO
 
+- [x] Support Mac
+- [ ] Support Linux
+- [ ] Support Windows
+- [ ] Xcode Generate sln
+- [ ] Visual Studio Generate sln
 - [x] ErrorHandler
 - [x] Shader Programmer and Compiler
 - [ ] Custom Shaders
@@ -61,3 +66,4 @@ The Cmake file should work the same.
 - [ ] Level Editor
 - [ ] Level Reader Writer
 - [ ] Organize Classes
+- [ ] JavaScript V8 Bindings for scripting 
