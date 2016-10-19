@@ -60,3 +60,4 @@ The Cmake file should work the same.
 - [ ] Event Handling
 - [ ] Level Editor
 - [ ] Level Reader Writer
+- [ ] Organize Classes
