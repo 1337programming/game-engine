@@ -3,23 +3,17 @@
 
 // #include <gl/glew.h> use "OpenGL/gl3.h" instead for mac
 #include <OpenGL/gl3.h>
+#include "Position.h"
+#include "Color.h"
 
 struct Vertex {
-  // Use case of compositions
-  struct Position {
-    float x;
-    float y;
-  } position;
 
-  struct Color {
-    GLubyte r;
-    GLubyte g;
-    GLubyte b;
-    GLubyte a;
-  } color;
-  // float position[2];
-  // GLubyte color[4];
-  // unsigned char color[3]; // 0 to 255
+  // Position X, Y
+  Position position;
+
+  // R, G, B, A
+  Color color;
+
 };
 
 #endif //GAME_ENGINE_VERTEX_H

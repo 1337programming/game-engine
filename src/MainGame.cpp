@@ -4,13 +4,13 @@
 #include <string>
 
 
-MainGame::MainGame() {
+MainGame::MainGame() :
+  _window(nullptr),
+  _screenWidth(1024),
+  _screenHeight(768),
+  _gameState(GameState::PLAY),
+  _time(0.0f) {
 
-  // Null Pointer for protection
-  _window = nullptr;
-  _screenWidth = 1024;
-  _screenHeight = 768;
-  _gameState = GameState::PLAY;
 }
 
 MainGame::~MainGame() {
@@ -39,7 +39,7 @@ void MainGame::initSystems() {
     fatalError("SDL Window could not be created!");
   }
 
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
   SDL_GLContext glContext = SDL_GL_CreateContext(_window);
   if (glContext == nullptr) {
@@ -106,6 +106,7 @@ void MainGame::gameLoop() {
   // Run game until game state is changed to exit
   while (_gameState != GameState::EXIT) {
     processInput();
+    _time += 0.01;
     drawGame();
   }
 
@@ -127,16 +128,24 @@ void MainGame::processInput() {
 }
 
 void MainGame::drawGame() {
-  glClearDepth(1.0); // Specify clear value for the buffer bit
-  //@TODO need more documentation
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Bitwise operation for clearing buffer
+
+
+
+  // Set the base depth to 1.0
+  glClearDepth(1.0);
+
+  // Clear the color and depth buffer
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   _colorProgram.use();
 
+  GLuint timeLocation = _colorProgram.getUniformLocation("time");
+  glUniform1f(timeLocation, _time);
+  // Draw Sprite
   _sprite.draw();
 
   _colorProgram.unuse();
 
-  // Swap buffer from A to B or vice versa
+  // Swap our buffer and draw everything to the screen
   SDL_GL_SwapWindow(_window);
 }
