@@ -17,7 +17,7 @@ The Cmake file should work the same.
 ### TODO
 
 - [x] Support Mac
-- [ ] Support Linux
+- [x] Support Linux
 - [ ] Support Windows
 - [ ] Xcode Generate sln
 - [ ] Visual Studio Generate sln
