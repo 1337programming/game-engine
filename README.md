@@ -27,6 +27,7 @@ The Cmake file should work the same.
 - [ ] Custom Textures
 - [x] Image Loader
 - [ ] Texture Processor
+- [ ] CMake Universal Relative Paths
 - [x] IO Mangement
 - [x] Vertex Buffer Output handler
 - [x] Sprites
@@ -66,4 +67,4 @@ The Cmake file should work the same.
 - [ ] Level Editor
 - [ ] Level Reader Writer
 - [ ] Organize Classes
-- [ ] JavaScript V8 Bindings for scripting 
+- [x] JavaScript V8 Bindings for scripting 

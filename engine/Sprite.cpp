@@ -29,41 +29,27 @@ void Sprite::init(float x, float y, float width, float height) {
   Vertex vertexData[6];
 
   // First Triangle
-  vertexData[0].position.x = x + width;
-  vertexData[0].position.y = y + height;
+  vertexData[0].setPosition(x + width, y + height);
 
-  vertexData[1].position.x = x;
-  vertexData[1].position.y = y + height;
+  vertexData[1].setPosition(x, y + height);
 
-  vertexData[2].position.x = x;
-  vertexData[2].position.y = y;
+  vertexData[2].setPosition(x, y);
 
   // Second Triangle
-  vertexData[3].position.x = x;
-  vertexData[3].position.y = y;
+  vertexData[3].setPosition(x, y);
 
-  vertexData[4].position.x = x + width;
-  vertexData[4].position.y = y;
+  vertexData[4].setPosition(x + width, y);
 
-  vertexData[5].position.x = x + width;
-  vertexData[5].position.y = y + height;
+  vertexData[5].setPosition(x + width, y + height);
 
+  // Set all vertex colors to magenta
   for (int i = 0; i < 6; i++) {
-    vertexData[i].color.r = 255;
-    vertexData[i].color.g = 0;
-    vertexData[i].color.b = 255;
-    vertexData[i].color.a = 255;
+    vertexData[i].setColor(255, 0, 255, 255);
   }
 
-  vertexData[1].color.r = 0;
-  vertexData[1].color.g = 0;
-  vertexData[1].color.b = 255;
-  vertexData[1].color.a = 255;
+  vertexData[1].setColor(0, 0, 255, 255);
 
-  vertexData[4].color.r = 0;
-  vertexData[4].color.g = 255;
-  vertexData[4].color.b = 0;
-  vertexData[4].color.a = 255;
+  vertexData[4].setColor(0, 255, 0, 255);
 
   // Tell opengl to bind our vertex buffer object
   glBindBuffer(GL_ARRAY_BUFFER, _vboID);

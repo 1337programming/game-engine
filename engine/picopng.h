@@ -1,4 +1,3 @@
-
 #ifndef GAME_ENGINE_PICOPNG_H
 #define GAME_ENGINE_PICOPNG_H
 

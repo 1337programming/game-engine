@@ -1,9 +1,9 @@
 #ifndef GAME_ENGINE_MAINGAME_H
 #define GAME_ENGINE_MAINGAME_H
 
-#pragma once
 #include "Sprite.h"
 #include "GLSLProgram.h"
+#include "GLTexture.h"
 #include <SDL.h>
 #include <OpenGL/gl3.h>
 
@@ -34,6 +34,7 @@ class MainGame {
     Sprite _sprite;
 
     GLSLProgram _colorProgram;
+    GLTexture _playerTexture;
 
     float _time;
 

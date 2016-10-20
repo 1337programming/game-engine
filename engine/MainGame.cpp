@@ -1,5 +1,6 @@
 #include "MainGame.h"
 #include "Errors.h"
+#include "ImageLoader.h"
 #include <iostream>
 #include <string>
 
@@ -21,6 +22,8 @@ void MainGame::run() {
   initSystems();
 
   _sprite.init(-1.0f, -1.0f, 2.0f, 2.0f);
+
+  _playerTexture = ImageLoader::loadPNG("/Users/patrick.opie/Documents/github/game-engine/engine/textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
   gameLoop();
 }

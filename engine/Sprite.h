@@ -1,8 +1,7 @@
-#include <OpenGL/gl3.h>
-
 #ifndef GAME_ENGINE_SPRITE_H
 #define GAME_ENGINE_SPRITE_H
 
+#include <OpenGL/gl3.h>
 
 class Sprite {
 
