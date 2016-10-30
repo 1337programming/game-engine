@@ -32,7 +32,7 @@ struct Vertex {
 
   void setUV(float u, float v) {
     uv.u = u;
-    uv.v;
+    uv.v = v;
   }
 
 };
