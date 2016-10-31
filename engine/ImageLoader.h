@@ -1,8 +1,8 @@
 #ifndef GAME_ENGINE_IMAGELOADER_H
 #define GAME_ENGINE_IMAGELOADER_H
 
-#include "GLTexture.h"
 #include <string>
+#include "GLTexture.h"
 
 class ImageLoader {
 

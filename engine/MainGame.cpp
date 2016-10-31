@@ -1,6 +1,5 @@
 #include "MainGame.h"
 #include "Errors.h"
-#include "ImageLoader.h"
 #include <iostream>
 #include <string>
 
@@ -21,10 +20,13 @@ MainGame::~MainGame() {
 void MainGame::run() {
   initSystems();
 
-  _sprite.init(-1.0f, -1.0f, 2.0f, 2.0f);
-
-  _playerTexture = ImageLoader::loadPNG(
-    "/Users/patrick.opie/Documents/github/game-engine/engine/textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+  std::string texPath = "/Users/patrick.opie/Documents/github/game-engine/engine/textures/jimmyJump_pack/PNG/CharacterRight_Standing.png";
+  _sprites.push_back(new Sprite());
+  _sprites.back()->init(-1.0f, -1.0f, 1.0f, 1.0f, texPath);
+  _sprites.push_back(new Sprite());
+  _sprites.back()->init(0.0f, -1.0f, 1.0f, 1.0f, texPath);
+  _sprites.push_back(new Sprite());
+  _sprites.back()->init(-1.0f, 0.0f, 1.0f, 1.0f, texPath);
 
   gameLoop();
 }
@@ -126,7 +128,8 @@ void MainGame::processInput() {
         _gameState = GameState::EXIT;
         break;
       case SDL_MOUSEMOTION: // Mouse Event
-        std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
+        //std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
+        break;
     }
   }
 }
@@ -138,20 +141,30 @@ void MainGame::drawGame() {
   // Clear the color and depth buffer
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+  // Enable the shader
   _colorProgram.use();
+
+  // We are using texture unit 0
   glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, _playerTexture.id);
+
+  // Get the uniform location
   GLint textureLocation = _colorProgram.getUniformLocation("mySampler");
+  // Tell shader that the texture is in texture unit 0
   glUniform1i(textureLocation, 0);
 
-  // Uniform time variable
+  // Set the constantly changing time variable
   GLuint timeLocation = _colorProgram.getUniformLocation("time");
   glUniform1f(timeLocation, _time);
 
   // Draw Sprite
-  _sprite.draw();
+  for (int i = 0; i < _sprites.size(); i++) {
+    _sprites[i]->draw();
+  }
 
+  // Unbind texture
   glBindTexture(GL_TEXTURE_2D, 0);
+
+  // Disable the shader
   _colorProgram.unuse();
 
   // Swap our buffer and draw everything to the screen
