@@ -20,22 +20,23 @@ The Cmake file should work the same.
 - [x] Support Linux
 - [ ] Support Windows
 - [ ] Xcode Generate sln
+- [ ] Move all dependencies
 - [ ] Visual Studio Generate sln
 - [x] ErrorHandler
 - [x] Shader Programmer and Compiler
 - [ ] Custom Shaders
-- [ ] Custom Textures
+- [x] Custom Textures
 - [x] Image Loader
-- [ ] Texture Processor
+- [x] Texture Processor
 - [ ] CMake Universal Relative Paths
 - [x] IO Mangement
 - [x] Vertex Buffer Output handler
 - [x] Sprites
 - [ ] Convert to 3D
 - [ ] Support 3D & 2D
-- [ ] Map and Binary Search Caching
-- [ ] Resource Manager
-- [ ] Texture Cache
+- [x] Map and Binary Search Caching
+- [x] Resource Manager
+- [x] Texture Cache
 - [ ] FPS Counter
 - [ ] Limiter
 - [ ] VSync Handling

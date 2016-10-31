@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(game_engine)
 
+# Not sure if this is correct, but fixes c++ x64 arch issues with std
+set (CMAKE_CXX_STANDARD 11)
 # includes cmake/FindSDL2.cmake
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
