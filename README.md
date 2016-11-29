@@ -37,9 +37,9 @@ The Cmake file should work the same.
 - [x] Map and Binary Search Caching
 - [x] Resource Manager
 - [x] Texture Cache
-- [ ] FPS Counter
-- [ ] Limiter
-- [ ] VSync Handling
+- [x] FPS Counter
+- [x] Limiter
+- [x] VSync Handling
 - [ ] Custom Library Support
 - [ ] Camera Class
 - [ ] GLM Setup
