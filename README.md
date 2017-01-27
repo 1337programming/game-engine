@@ -40,6 +40,8 @@ The Cmake file should work the same.
 - [x] FPS Counter
 - [x] Limiter
 - [x] VSync Handling
+- [x] Window Class
+- [x] Engine Namespace abstraction
 - [ ] Custom Library Support
 - [ ] Camera Class
 - [ ] GLM Setup

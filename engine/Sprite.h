@@ -5,25 +5,30 @@
 #include <OpenGL/gl3.h>
 #include "GLTexture.h"
 
-class Sprite {
+namespace Engine {
 
-  public:
-    Sprite();
-    ~Sprite();
 
-    void init(float x, float y, float width, float height, std::string texturePath);
+  class Sprite {
 
-    void draw();
+    public:
+      Sprite();
 
-  private:
-    float _x;
-    float _y;
-    float _width;
-    float _height;
-    GLuint _vboID; // GLuint is same as unsigned int except its guaranteed to be 32-bit
-    GLTexture _texture;
+      ~Sprite();
 
-};
+      void init(float x, float y, float width, float height, std::string texturePath);
 
+      void draw();
+
+    private:
+      float _x;
+      float _y;
+      float _width;
+      float _height;
+      GLuint _vboID; // GLuint is same as unsigned int except its guaranteed to be 32-bit
+      GLTexture _texture;
+
+  };
+
+}
 
 #endif //GAME_ENGINE_SPRITE_H

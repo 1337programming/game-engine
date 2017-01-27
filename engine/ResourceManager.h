@@ -5,14 +5,18 @@
 #include "GLTexture.h"
 #include <string>
 
-class ResourceManager {
+namespace Engine {
 
-  public:
-    static GLTexture getTexture(std::string texturePath);
+  class ResourceManager {
 
-  private:
-    static TextureCache _textureCache;
-};
+    public:
+      static GLTexture getTexture(std::string texturePath);
+
+    private:
+      static TextureCache _textureCache;
+  };
+
+}
 
 
 #endif //GAME_ENGINE_RESOURCEMANAGER_H

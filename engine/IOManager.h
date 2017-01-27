@@ -4,10 +4,14 @@
 #include <vector>
 #include <string>
 
-class IOManager {
+namespace Engine {
 
-  public:
-    static bool readFileToBuffer(std::string filePath, std::vector<unsigned char> &buffer);
-};
 
+  class IOManager {
+
+    public:
+      static bool readFileToBuffer(std::string filePath, std::vector<unsigned char> &buffer);
+  };
+
+}
 #endif //GAME_ENGINE_IOMANAGER_H

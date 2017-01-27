@@ -5,35 +5,44 @@
 #include <OpenGL/gl3.h>
 
 
-class GLSLProgram {
+namespace Engine {
 
-  public:
-    GLSLProgram();
-    ~GLSLProgram();
+/**
+ * This class handles the compilation, linking and usage of a GLSL shader program
+ * Source: www.opengl.org/wiki/Shader_Compilation
+ */
+  class GLSLProgram {
 
-    void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
+    public:
+      GLSLProgram();
 
-    void linkShaders();
+      ~GLSLProgram();
 
-    void addAttribute(const std::string& attributeName);
+      void compileShaders(const std::string &vertexShaderFilePath, const std::string &fragmentShaderFilePath);
 
-    GLint getUniformLocation(const std::string& uniformName);
+      void linkShaders();
 
-    void use();
-    void unuse();
+      void addAttribute(const std::string &attributeName);
 
-  private:
+      GLint getUniformLocation(const std::string &uniformName);
 
-    int _numAttributes;
+      void use();
 
-    void compileShader(const std::string& filePath, GLuint& id);
-    GLuint _programID;
+      void unuse();
 
-    GLuint _vertexShaderID;
-    GLuint _fragementShaderID;
+    private:
+
+      int _numAttributes;
+
+      void compileShader(const std::string &filePath, GLuint &id);
+
+      GLuint _programID;
+
+      GLuint _vertexShaderID;
+      GLuint _fragementShaderID;
 
 
+  };
 
-};
-
+}
 #endif //GAME_ENGINE_GLSLPROGRAM_H

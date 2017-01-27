@@ -3,10 +3,13 @@
 
 #include <OpenGL/gl3.h>
 
-struct GLTexture {
-  GLuint id;
-  int width;
-  int height;
-};
+namespace Engine {
 
+  struct GLTexture {
+    GLuint id;
+    int width;
+    int height;
+  };
+
+}
 #endif //GAME_ENGINE_GLTEXTURE_H

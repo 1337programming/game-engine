@@ -1,13 +1,15 @@
 #ifndef GAME_ENGINE_MAINGAME_H
 #define GAME_ENGINE_MAINGAME_H
 
+#include "Engine.h"
 #include "Sprite.h"
 #include "GLSLProgram.h"
 #include "GLTexture.h"
+#include "Window.h"
 #include <vector>
-#include <SDL.h>
-#include <OpenGL/gl3.h>
 
+// This class for initial testing of the engine
+// Eventually we will use the JS scripts to run this
 enum class GameState {
     PLAY, EXIT
 };
@@ -25,20 +27,25 @@ class MainGame {
 
   private:
     void initSystems();
+
     void initShaders();
+
     void gameLoop();
+
     void processInput();
+
     void drawGame();
+
     void calculateFPS();
 
-    SDL_Window *_window;
+    Engine::Window _window;
     int _screenWidth;
     int _screenHeight;
     GameState _gameState;
 
-    std::vector<Sprite *> _sprites;
+    std::vector<Engine::Sprite *> _sprites;
 
-    GLSLProgram _colorProgram;
+    Engine::GLSLProgram _colorProgram;
 
     float _fps;
     float _frameTime;

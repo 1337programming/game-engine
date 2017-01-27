@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
-extern void fatalError(std::string errorString);
+namespace Engine {
 
+  extern void fatalError(std::string errorString);
+
+}
 #endif //GAME_ENGINE_ERRORS_H_H

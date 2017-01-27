@@ -5,19 +5,22 @@
 #include <string>
 #include "GLTexture.h"
 
+namespace Engine {
 
-class TextureCache {
+  class TextureCache {
 
-  public:
-    TextureCache();
-    ~TextureCache();
+    public:
+      TextureCache();
 
-    GLTexture getTexture(std::string texturePath);
+      ~TextureCache();
 
-  private:
-    std::map<std::string, GLTexture> _textureMap;
+      GLTexture getTexture(std::string texturePath);
 
-};
+    private:
+      std::map<std::string, Engine::GLTexture> _textureMap;
 
+  };
+
+}
 
 #endif //GAME_ENGINE_TEXTURECACHE_H

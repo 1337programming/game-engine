@@ -4,12 +4,16 @@
 #include <string>
 #include "GLTexture.h"
 
-class ImageLoader {
+namespace Engine {
 
-  public:
-    static GLTexture loadPNG(std::string filePath);
 
-};
+  class ImageLoader {
 
+    public:
+      static GLTexture loadPNG(std::string filePath);
+
+  };
+
+}
 
 #endif //GAME_ENGINE_IMAGELOADER_H
