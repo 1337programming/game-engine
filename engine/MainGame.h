@@ -6,6 +6,7 @@
 #include "GLSLProgram.h"
 #include "GLTexture.h"
 #include "Window.h"
+#include "Camera2D.h"
 #include <vector>
 
 // This class for initial testing of the engine
@@ -46,6 +47,7 @@ class MainGame {
     std::vector<Engine::Sprite *> _sprites;
 
     Engine::GLSLProgram _colorProgram;
+    Engine::Camera2D _camera;
 
     float _fps;
     float _frameTime;
